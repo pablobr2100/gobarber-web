@@ -21,7 +21,7 @@ interface SignFormData {
   password: string;
 }
 
-const SignIn: React.FC = () => {
+const SignInProvider: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
@@ -49,7 +49,7 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
 
-        history.push('/dashboard');
+        history.push('/dashboard-provider');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -96,8 +96,8 @@ const SignIn: React.FC = () => {
 
             <Link to="forgot-password">Esqueci minha senha</Link>
 
-            <Link to="signin-provider">
-              Fazer logon como <span>cabeleireiro</span>
+            <Link to="/">
+              Fazer logon como <span>usuário</span>
             </Link>
           </Form>
 
@@ -113,4 +113,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default SignInProvider;

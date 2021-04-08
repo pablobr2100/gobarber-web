@@ -25,7 +25,7 @@ interface ProfileFormData {
   password_confirmation: string;
 }
 
-const Profile: React.FC = () => {
+const ProfileProvider: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { addToast } = useToast();
   const history = useHistory();
@@ -85,7 +85,7 @@ const Profile: React.FC = () => {
 
         updateUser(response.data);
 
-        history.push('/dashboard');
+        history.push('/dashboard-provider');
 
         addToast({
           type: 'success',
@@ -136,7 +136,7 @@ const Profile: React.FC = () => {
     <Container>
       <header>
         <div>
-          <Link to="/dashboard">
+          <Link to="/dashboard-provider">
             <FiArrowLeft />
           </Link>
         </div>
@@ -192,4 +192,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default ProfileProvider;
